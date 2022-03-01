@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="ChristmasShoppingCart.Views.DetailView">
+    <ContentPage.Content>
+        
+        <Grid RowDefinitions="Auto, Auto, Auto, *"
+              BackgroundColor="#fd553b">
+
+            <!-- Header -->
+            <StackLayout BackgroundColor="White">
+
+                <yummy:PancakeView CornerRadius="0, 0, 90, 0"
+                               BackgroundColor="#d4f1ef">
+
+                    <Grid HorizontalOptions="FillAndExpand">
+
+                        <Image Source="Deer"
+                           HeightRequest="200"
+                           HorizontalOptions="CenterAndExpand"
+                           Margin="0, 16"/>
+
+                        <Button ImageSource="Bag"
+                            HeightRequest="50"
+                            WidthRequest="50"
+                            CornerRadius="25"
+                            Margin="0, 16, 16, 0"
+                            BackgroundColor="#90dbd5" 
+                            HorizontalOptions="End"
+                            VerticalOptions="Start"/>
+
+                        <Button HeightRequest="30"
+                            WidthRequest="30"
+                            CornerRadius="15"
+                            Padding="0"
+                            Margin="0, 8, 8, 0"
+                            Text="1"
+                            FontSize="Micro"
+                            TextColor="Red"
+                            BackgroundColor="White" 
+                            HorizontalOptions="End"
+                            VerticalOptions="Start"/>
+
+                    </Grid>
+
+                </yummy:PancakeView>
+            </StackLayout>
+
+
+            <!-- Product details -->
+            <StackLayout Grid.Row="1"
+                         Margin="0, -10, 0, 0"
+                         BackgroundColor="#d4f1ef">
+                
+                <yummy:PancakeView CornerRadius="0, 90, 0,0">
+
+                    <StackLayout Padding="16"
+                                 BackgroundColor="White">
+                        <Label Text="Flussmonger"
+                               FontSize="Medium"
+                           
+                               FontAttributes="Bold"
+                               TextColor="LightGray"/>
+
+                        <Label Text="Reindeer Teddy Bear with Chocolates"
+                               FontSize="34"
+                               FontAttributes="Bold"/>
+
+                        <Label Text="$70.99"
+                               FontSize="34"
+                               FontAttributes="Bold"
+                               TextColor="Green"/>
+
+                        <Label Text="A children's favorite is brought to life with the Rudolph animated plush, a cool, collectible friend with red and black buffalo plaid print on his scarf and inside his ears."
+                              />
+                    </StackLayout>
+                </yummy:PancakeView>
+
+            </StackLayout>
+
+            <yummy:PancakeView Grid.Row="2" 
+                                 CornerRadius="0,0,50,50" 
+                                 Margin="0,-10,0,0" 
+                                 BackgroundColor="White" 
+                                 HeightRequest="50" />
+            
+            <!-- Add to cart -->
+            <StackLayout Grid.Row="3">
+
+                <Button 
+                    Text="Add to cart"
+                    BackgroundColor="White"
+                    CornerRadius="20" 
+                    VerticalOptions="CenterAndExpand"
+                    Margin="60, 0"
+                    FontAttributes="Bold"
+                    HeightRequest="55"/>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
