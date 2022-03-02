@@ -11,7 +11,7 @@ namespace ChristmasShoppingCart
         {
             InitializeComponent();
 
-            MainPage = new ShoppingCartView();
+            MainPage = new DetailView();
         }
 
         protected override void OnStart()

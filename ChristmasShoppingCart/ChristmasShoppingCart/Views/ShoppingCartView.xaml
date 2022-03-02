@@ -12,8 +12,7 @@
               BackgroundColor="#fd553b">
 
             <!-- Header -->
-            <StackLayout BackgroundColor="White"
-                         CompressedLayout.IsHeadless="True">
+            <StackLayout BackgroundColor="White">
 
                 <yummy:PancakeView CornerRadius="0, 0, 90, 0"
                                BackgroundColor="#49c175">
@@ -153,7 +152,7 @@
                     <Label Text="Total Payment"
                            TextColor="White"/>
 
-                    <Label Text="90.42"
+                    <Label Text="$90.42"
                            FontSize="34"
                            FontAttributes="Bold"
                            TextColor="White"/>
