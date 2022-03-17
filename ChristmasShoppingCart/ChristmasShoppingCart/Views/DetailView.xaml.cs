@@ -15,6 +15,19 @@ namespace ChristmasShoppingCart.Views
         public DetailView()
         {
             InitializeComponent();
+
+            SizeChanged += (sender, args) =>
+            {
+                var height = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo.Height;
+
+                if (height < 1150)
+                {
+                    VisualStateManager.GoToState(ProductImage, "SmallScreen");
+                    VisualStateManager.GoToState(ProductName, "SmallScreen");
+                    VisualStateManager.GoToState(ProductPrice, "SmallScreen");
+                    VisualStateManager.GoToState(ProductDescription, "SmallScreen");
+                }
+            };
         }
     }
 }

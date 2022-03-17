@@ -4,7 +4,9 @@
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              x:Class="ChristmasShoppingCart.Views.DetailView">
     <ContentPage.Content>
-        
+
+        <ScrollView>
+
         <Grid RowDefinitions="Auto, Auto, Auto, *"
               BackgroundColor="#fd553b">
 
@@ -16,10 +18,23 @@
 
                     <Grid HorizontalOptions="FillAndExpand">
 
-                        <Image Source="Deer"
-                           HeightRequest="200"
-                           HorizontalOptions="CenterAndExpand"
-                           Margin="0, 16"/>
+                        <Image x:Name="ProductImage"
+                               Source="Deer"
+                               HeightRequest="200"
+                               HorizontalOptions="CenterAndExpand"
+                               Margin="0, 16">
+
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="ScreenSizeStates">
+                                <VisualState x:Name="SmallScreen">
+                                    <VisualState.Setters>
+                                        <Setter Property="HeightRequest" Value="150" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        </Image>
 
                         <Button ImageSource="Bag"
                             HeightRequest="50"
@@ -63,17 +78,51 @@
                                FontAttributes="Bold"
                                TextColor="LightGray"/>
 
-                        <Label Text="Reindeer Teddy Bear with Chocolates"
+                        <Label x:Name="ProductName"
+                               Text="Reindeer Teddy Bear with Chocolates"
                                FontSize="34"
-                               FontAttributes="Bold"/>
+                               FontAttributes="Bold">
 
-                        <Label Text="$70.99"
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ScreenSizeStates">
+                                    <VisualState x:Name="SmallScreen">
+                                        <VisualState.Setters>
+                                            <Setter Property="FontSize" Value="25" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Label>
+
+                        <Label x:Name="ProductPrice"
+                               Text="$70.99"
                                FontSize="34"
                                FontAttributes="Bold"
-                               TextColor="Green"/>
+                               TextColor="Green">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ScreenSizeStates">
+                                    <VisualState x:Name="SmallScreen">
+                                        <VisualState.Setters>
+                                            <Setter Property="FontSize" Value="25" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Label>
 
-                        <Label Text="A children's favorite is brought to life with the Rudolph animated plush, a cool, collectible friend with red and black buffalo plaid print on his scarf and inside his ears."
-                              />
+                        <Label x:Name="ProductDescription"
+                               Text="A children's favorite is brought to life with the Rudolph animated plush, a cool, collectible friend with red and black buffalo plaid print on his scarf and inside his ears."
+                               >
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="ScreenSizeStates">
+                                    <VisualState x:Name="SmallScreen">
+                                        <VisualState.Setters>
+                                            <Setter Property="FontSize" Value="15" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                        </Label>
                     </StackLayout>
                 </yummy:PancakeView>
 
@@ -99,5 +148,6 @@
             </StackLayout>
 
         </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

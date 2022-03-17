@@ -17,6 +17,17 @@ namespace ChristmasShoppingCart.Views
             InitializeComponent();
 
             BindingContext = new ViewModels.ShoppingCartViewModel();
+
+            SizeChanged += (sender, args) =>
+            {
+                var height = Xamarin.Essentials.DeviceDisplay.MainDisplayInfo.Height;
+
+                if (height < 1150)
+                {
+                   VisualStateManager.GoToState(ItemsList, "SmallScreen");
+                   VisualStateManager.GoToState(TotalLabel, "SmallScreen");
+                }
+            };
         }
     }
 }

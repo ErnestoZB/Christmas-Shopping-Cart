@@ -7,7 +7,9 @@
              x:DataType="viewModels:ShoppingCartViewModel"
              x:Class="ChristmasShoppingCart.Views.ShoppingCartView">
     <ContentPage.Content>
-        
+
+        <ScrollView>
+
         <Grid RowDefinitions="Auto, Auto, Auto, *"
               BackgroundColor="#fd553b">
 
@@ -62,16 +64,28 @@
 
             <!-- Product details -->
             <StackLayout Grid.Row="1"
-                         Margin="0, -6, 0, 0"
+                         Margin="{OnPlatform Android='0, -6, 0, 0', iOS='0, -7, 0, 0'}"
                          BackgroundColor="#49c175">
                 
                 <yummy:PancakeView CornerRadius="0, 90, 0,0">
 
-                    <CollectionView  
+                    <CollectionView
+                                 x:Name="ItemsList"
                                  VerticalScrollBarVisibility="Never"
-                                 HeightRequest="{OnPlatform Android='340', iOS='515'}" 
+                                 HeightRequest="340" 
                                  BackgroundColor="White" 
                                  ItemsSource="{Binding Items}">
+
+                        <VisualStateManager.VisualStateGroups>
+
+                            <VisualStateGroup x:Name="ScreenSizeStates">
+                                <VisualState x:Name="SmallScreen">
+                                    <VisualState.Setters>
+                                        <Setter Property="HeightRequest" Value="250" />
+                                    </VisualState.Setters>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
                         
                         <CollectionView.ItemTemplate>
                             
@@ -90,30 +104,66 @@
                                                Aspect="AspectFill" />
                                     </yummy:PancakeView>
                                     
-                                    <Label Grid.Row="0" 
+                                    <Label x:Name="ByLabel"
+                                           Grid.Row="0" 
                                            Grid.Column="1" 
                                            Text="{Binding By}"
                                            Grid.ColumnSpan="2" 
                                            FontSize="13" 
                                            Padding="10,10,0,0" 
                                            TextColor="#9a9bab"
-                                           FontAttributes="Bold"/>
+                                           FontAttributes="Bold">
+
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="ScreenSizeStates">
+                                                <VisualState x:Name="SmallScreen">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="FontSize" Value="10" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                    </Label>
                                     
-                                    <Label Grid.Row="1" 
+                                    <Label x:Name="TitleLabel"
+                                           Grid.Row="1" 
                                            Grid.Column="1"
                                            Text="{Binding Title}" 
                                            MaxLines="3" 
                                            Padding="10,0,0,10" 
                                            FontSize="17" 
-                                           FontAttributes="Bold"/>
+                                           FontAttributes="Bold">
+
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="ScreenSizeStates">
+                                                <VisualState x:Name="SmallScreen">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="FontSize" Value="14" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                    </Label>
                                     
-                                    <Label Grid.Row="2" 
+                                    <Label x:Name="PriceLabel"
+                                           Grid.Row="2" 
                                            Grid.Column="1" 
                                            Text="{Binding Price}" 
                                            Padding="10,0,0,0" 
                                            FontAttributes="Bold" 
                                            FontSize="20" 
-                                           TextColor="#49c175"/>
+                                           TextColor="#49c175">
+
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="ScreenSizeStates">
+                                                <VisualState x:Name="SmallScreen">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="FontSize" Value="17" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                    </Label>
                                     
                                     <Button Grid.Row="1" 
                                             Grid.Column="3" 
@@ -152,10 +202,22 @@
                     <Label Text="Total Payment"
                            TextColor="White"/>
 
-                    <Label Text="$90.42"
+                    <Label x:Name="TotalLabel"
+                           Text="$90.42"
                            FontSize="34"
                            FontAttributes="Bold"
-                           TextColor="White"/>
+                           TextColor="White">
+
+                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="ScreenSizeStates">
+                                                <VisualState x:Name="SmallScreen">
+                                                    <VisualState.Setters>
+                                                        <Setter Property="FontSize" Value="22" />
+                                                    </VisualState.Setters>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                    </Label>
                     
                 </StackLayout>
                 
@@ -171,5 +233,7 @@
             </Grid>
 
         </Grid>
+            
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
